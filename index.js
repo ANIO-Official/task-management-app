@@ -3,13 +3,14 @@
 let tasks = []
 
 //New Task Specific Variables
-let taskName = document.querySelector("#taskName")
+let taskName = document.querySelector("#taskName") //The text input
 let category = document.querySelector("categoryChoice:checked")
 let deadline = document.querySelector("#deadline")
 let status = document.querySelector(".statusCheckbox:checked")
 
 //Task Display Area Variables
 let taskDisplayArea = document.querySelector("#taskDisplayArea") 
+let addTaskBtn = document.querySelector("#addTaskBtn")
 
 //////////////////////////////
 //      Data Storage        //
@@ -44,16 +45,16 @@ function renderTasks(){
     taskDisplayArea.innerHTML = ""
 
     let listItem = document.createElement("li")
-    listItem.innerText = "Task" //provides title for list item
-    console.log(`Added ${listItem.innerText} to list`)
+    listItem.innerText = taskName.value //provides title for list item
+    listItem.style.listStyleType = "none"
+    listItem.className = "taskHeader"
+    console.log(`Added ${listItem} to list`)
     taskDisplayArea.appendChild(listItem)
 }
 
-renderTasks()
-
-
-
-
+addTaskBtn.addEventListener("click", function(){
+    renderTasks()
+})
 
 
 // //test to see if createTask function works in console.
