@@ -1,131 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Buddy</title>
     <!--Linked CSS Sheet-->
     <link rel="stylesheet" href="styles.css" />
+    <!--Bootstrap CSS Library | CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!--Linked JavaScript-->
     <script defer src="index.js"></script>
-  </head>
-  <body>
+</head>
+
+<body class="bg-dark">
     <header>
-      <h1>🎯Task Buddy 2025 🦉</h1>
+        <p class="fs-4 bg-primary mb-0 py-2 ps-3 text-white">🎯Task Buddy 2025 🦉</p>
     </header>
-    <main>
-      <form id="newTask-form">
-        <label for="taskName">Task Name</label>
-        <input
-          id="taskName"
-          type="text"
-          placeholder="Go to the movies with John..."
-        />
-        <fieldset id="categoryContainer" type="radio">
-          <legend>Pick a Category</legend>
-          <div>
-            <input
-              id="general"
-              class="categoryChoice"
-              type="radio"
-              name="category"
-              role="radio"
-              checked
-            />
-            <label for="general" class="categoryLabel">General</label>
-          </div>
-          <div>
-            <input
-              id="work"
-              class="categoryChoice"
-              type="radio"
-              name="category"
-              role="radio"
-            />
-            <label for="work" class="categoryLabel">Work</label>
-          </div>
-          <div>
-            <input
-              id="friends"
-              class="categoryChoice"
-              type="radio"
-              name="category"
-              role="radio"
-            />
-            <label for="friends" class="categoryLabel">Friends</label>
-          </div>
-          <div>
-            <input
-              id="school"
-              class="categoryChoice"
-              type="radio"
-              name="category"
-              role="radio"
-            />
-            <label for="school" class="categoryLabel">School</label>
-          </div>
-          <div>
-            <input
-              id="health"
-              class="categoryChoice"
-              type="radio"
-              name="category"
-              role="radio"
-            />
-            <label for="health" class="categoryLabel">Health</label>
-          </div>
-        </fieldset>
-        <label for="deadline">Deadline</label>
-        <input id="deadline" type="datetime" placeholder="12/25/2025" />
-        <fieldset id="statusContainer">
-          <legend>Status</legend>
-          <div>
-            <input id="started" type="checkbox" role="checkbox" />
-            <label for="started">Started</label>
-          </div>
-          <div>
-            <input id="complete" type="checkbox" role="checkbox" />
-            <label for="complete">Complete</label>
-          </div>
-          <div>
-            <input id="onHold" type="checkbox" role="checkbox" />
-            <label for="onHold">On Hold</label>
-          </div>
-        </fieldset>
-        <button>Add Task ➕</button>
-      </form>
-    </main>
-    <section id="taskArea">
-      <h2>Tasks</h2>
-      <fieldset>
-        <legend>Filter By Status or Category</legend>
-        <div>
-          <label>Find Task(s) With Status:</label>
-          <select id="statusPick" name="status-select">
-            <option>--Choose a Status--</option>
-            <option value="started">Started</option>
-            <option value="complete">Complete</option>
-            <option value="onHold">On Hold</option>
-          </select>
+    <div id="main-bg" class="bg-primary-subtle mx-5 py-2 d-flex flex-row justify-content-around align-items-center">
+        <div class="accent-column pe-5" style=" width: auto; height: 100%;">
+            <h1>Welcome back!</h1>
+            <p>Ready to get productive?</p>
+            <p class="fs-5">🦉</p>
         </div>
-        <div>
-          <label>Find Task(s) With Category:</label>
-          <select id="categoryPick" name="category-select">
-            <option>--Choose a Status--</option>
-            <option value="general">General</option>
-            <option value="work">Work</option>
-            <option value="friends">Friends</option>
-            <option value="school">School</option>
-            <option value="health">Health</option>
-          </select>
+        <div id="taskContentContainer">
+            <main>
+                <label for="newTask-form" class="fs-2 pb-3">Hey Buddy! Got A New Task?</label>
+                <form id="newTask-form" class="d-flex flex-row">
+                    <div class="pe-5">
+                        <label for="taskName">Task Name</label>
+                        <input id="taskName" type="text" placeholder="Go to the movies..." class="mb-3" />
+                        <br>
+                        <fieldset id="categoryContainer" type="radio">
+                            <legend>Pick a Category</legend>
+                            <div>
+                                <input id="general" class="categoryChoice" type="radio" name="category" role="radio"
+                                    checked />
+                                <label for="general" class="categoryLabel">General</label>
+                            </div>
+                            <div>
+                                <input id="work" class="categoryChoice" type="radio" name="category" role="radio" />
+                                <label for="work" class="categoryLabel">Work</label>
+                            </div>
+                            <div>
+                                <input id="friends" class="categoryChoice" type="radio" name="category" role="radio" />
+                                <label for="friends" class="categoryLabel">Friends</label>
+                            </div>
+                            <div>
+                                <input id="school" class="categoryChoice" type="radio" name="category" role="radio" />
+                                <label for="school" class="categoryLabel">School</label>
+                            </div>
+                            <div>
+                                <input id="health" class="categoryChoice" type="radio" name="category" role="radio" />
+                                <label for="health" class="categoryLabel">Health</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <label for="deadline">Deadline</label>
+                        <input id="deadline" type="datetime" placeholder="12/25/2025" class="mb-3"/>
+                        <br>
+                        <fieldset id="statusContainer">
+                            <legend>Status</legend>
+                            <div>
+                                <input id="started" type="checkbox" role="checkbox" />
+                                <label for="started">Started</label>
+                            </div>
+                            <div>
+                                <input id="complete" type="checkbox" role="checkbox" />
+                                <label for="complete">Complete</label>
+                            </div>
+                            <div>
+                                <input id="onHold" type="checkbox" role="checkbox" />
+                                <label for="onHold">On Hold</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+                <div>
+                    <button class="mt-3 btn btn-primary rounded-pill">Add Task ➕</button>
+                </div>
+            </main>
+            <br>
         </div>
-      </fieldset>
-      <div id="displayContainer">
-        <ul id="taskDisplayArea"></ul>
-      </div>
-    </section>
-    <footer>
-      <div>Web App created by Amanda Ogletree.</div>
+        <div class="accent-column pe-5" style=" width: 15vw; height: 100%;">
+        </div>
+    </div>
+    <div class="divider bg-info mx-5" style="height: 1vw;"></div>
+    <div id="taskArea-bg" class="bg-light mx-5 d-flex flex-row align-items-start" style="height: 1080px;">
+        <div class="accent-column pe-5" style=" width: 5vw; height: 100%;"></div>
+        <section id="taskArea" class="py-5">
+            <h2>Task List</h2>
+            <fieldset>
+                <legend>Filter By Status or Category</legend>
+                <div>
+                    <label>Find Task(s) With Status:</label>
+                    <select id="statusPick" name="status-select">
+                        <option>--Choose a Status--</option>
+                        <option value="started">Started</option>
+                        <option value="complete">Complete</option>
+                        <option value="onHold">On Hold</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Find Task(s) With Category:</label>
+                    <select id="categoryPick" name="category-select">
+                        <option>--Choose a Status--</option>
+                        <option value="general">General</option>
+                        <option value="work">Work</option>
+                        <option value="friends">Friends</option>
+                        <option value="school">School</option>
+                        <option value="health">Health</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div id="displayContainer">
+                <ul id="taskDisplayArea"></ul>
+            </div>
+        </section>
+        <div class="accent-column pe-5" style=" width: 5vw; height: 100%;"></div>
+    </div>
+    <footer class="bg-dark mb-0 py-2 text-white" style="height: auto;">
+        <div>
+            <p class="ps-5">Web App created by Amanda Ogletree.</p>
+        </div>
     </footer>
-  </body>
+</body>
+
 </html>
