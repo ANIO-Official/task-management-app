@@ -11,6 +11,10 @@ let status = document.querySelector(".statusCheckbox").checked
 //Task Display Area Variables
 let taskDisplayArea = document.querySelector("#taskDisplayArea") 
 let addTaskBtn = document.querySelector("#addTaskBtn")
+let taskDetails = []
+//Create a div to be a card for task information in the Display Area
+let taskCard = document.createElement("div")
+taskCard.className = "taskCard"
 
 //////////////////////////////
 //      Data Storage        //
@@ -40,22 +44,57 @@ function addTask(task){
 //////////////////////////////
 //      Display Tasks       //
 //////////////////////////////
-
-function renderTasks(){
-    taskDisplayArea.innerHTML = ""
-
-    let listItem = document.createElement("li")
-    listItem.innerText = taskName.value //provides title for list item
-    listItem.style.listStyleType = "none"
-    listItem.className = "taskHeader"
-    console.log(`Displayed ${listItem.innerText} to list`)//Check
-    taskDisplayArea.appendChild(listItem)
-}
 //Reusable clear function set values to nada/nothing/0.
 function clear(field){
     field.value = ""
 }
 
+/*Function to call to append multiple children from the details array
+so that they all can append to the parent div taskCard*/
+function appendTaskDetails(parentTask, details){
+    for (let detail of details){
+        parentTask.appendChild(detail)
+    }
+}
+
+function renderTasks(){
+    taskDisplayArea.innerHTML = ""
+
+    let listItem = document.createElement("li")
+    // listItem.innerText = taskName.value //provides title for list item
+    listItem.style.listStyleType = "none"
+    listItem.className = "taskHeader"
+    console.log(`Displayed ${listItem.innerText} to list`)//Check
+    taskDisplayArea.appendChild(listItem)
+
+    taskCardSetup() //Append details to taskCard div
+    listItem.appendChild(taskCard) //Append taskCard to listItem
+}
+
+/*Create the Task Details to display inside a div by adding them into taskDetail array.
+Shows: Name, Category, Deadline, and Status & Adds classes for CSS styling*/
+function taskCardSetup(){
+    //Create a paragraph element for Task Name, Category, and Status
+    let taskCardName = document.createElement("p")
+    taskCardName.className = "cardName"
+    taskCardName.innerText = taskName.value
+
+    let taskCardDeadline = document.createElement("p")
+    taskCardDeadline.className = "cardDeadline"
+    taskCardDeadline.innerText = deadline.value
+
+    let taskCardCategory = document.createElement("p")
+    taskCardCategory.innerText = category.value
+    taskCardCategory.className = "cardCategory"
+
+    let taskCardStatus = document.createElement("p")
+    taskCardStatus.innerText = status.value
+    taskCardStatus.className = "cardStatus"
+
+    //Add the newly created task card to the details array
+    taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
+    appendTaskDetails(taskCard, taskDetails)
+}
 
 addTaskBtn.addEventListener("click", function(){
     let task = "newTask"
@@ -65,13 +104,3 @@ addTaskBtn.addEventListener("click", function(){
     clear(deadline)
     
 })
-
-
-// //test to see if createTask function works in console.
-
-// let task1 = createTask("John's Birthday", "Family", "05/22/2026", "On Hold")
-// //console.log(task)
-
-// //Test pushing it into array
-// tasks.push(task)
-// console.log(tasks)
