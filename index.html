@@ -1,94 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Buddy</title>
     <!--Linked CSS Sheet-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <!--Linked JavaScript-->
-    <script defer src="index.js" ></script>
-</head>
-<body>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
     <header>
-        <h1>🎯Task Buddy 2025 🦉</h1>
+      <h1>🎯Task Buddy 2025 🦉</h1>
     </header>
     <main>
-        <form id="newTask-form">
-            <label for="taskName">Task Name</label>
-            <input id="taskName" type="text" placeholder="Go to the movies with John..." />
-            <fieldset id="categoryContainer" type="radio">
-                <legend>Pick a Category</legend>
-                <div>
-                    <input id="general" class="categoryChoice" type="radio" name="category" role="radio" checked>
-                    <label for="general" class="categoryLabel">General</label>
-                </div>
-                <div>
-                    <input id="work" class="categoryChoice" type="radio" name="category" role="radio">
-                    <label for="work" class="categoryLabel">Work</label>
-                </div>
-                <div>
-                    <input id="friends" class="categoryChoice" type="radio" name="category" role="radio">
-                    <label for="friends" class="categoryLabel">Friends</label>
-                </div>
-                <div>
-                    <input id="school" class="categoryChoice" type="radio" name="category" role="radio">
-                    <label for="school" class="categoryLabel">School</label>
-                </div>
-                <div>
-                    <input id="health" class="categoryChoice" type="radio" name="category" role="radio">
-                    <label for="health" class="categoryLabel">Health</label>
-                </div>
-            </fieldset>
-            <label for="deadline">Deadline</label>
-            <input id="deadline" type="datetime" placeholder="12/25/2025" />
-            <fieldset id="statusContainer">
-                <legend>Status</legend>
-                <div>
-                    <input id="started" type="checkbox" role="checkbox"/>
-                    <label for="started">Started</label>
-                </div>
-                <div>
-                    <input id="complete" type="checkbox" role="checkbox"/>
-                    <label for="complete">Complete</label>
-                </div>
-                <div>
-                    <input id="onHold" type="checkbox" role="checkbox"/>
-                    <label for="onHold">On Hold</label>
-                </div>
-            </fieldset>
-            <button>Add Task ➕</button>
-        </form>
+      <form id="newTask-form">
+        <label for="taskName">Task Name</label>
+        <input
+          id="taskName"
+          type="text"
+          placeholder="Go to the movies with John..."
+        />
+        <fieldset id="categoryContainer" type="radio">
+          <legend>Pick a Category</legend>
+          <div>
+            <input
+              id="general"
+              class="categoryChoice"
+              type="radio"
+              name="category"
+              role="radio"
+              checked
+            />
+            <label for="general" class="categoryLabel">General</label>
+          </div>
+          <div>
+            <input
+              id="work"
+              class="categoryChoice"
+              type="radio"
+              name="category"
+              role="radio"
+            />
+            <label for="work" class="categoryLabel">Work</label>
+          </div>
+          <div>
+            <input
+              id="friends"
+              class="categoryChoice"
+              type="radio"
+              name="category"
+              role="radio"
+            />
+            <label for="friends" class="categoryLabel">Friends</label>
+          </div>
+          <div>
+            <input
+              id="school"
+              class="categoryChoice"
+              type="radio"
+              name="category"
+              role="radio"
+            />
+            <label for="school" class="categoryLabel">School</label>
+          </div>
+          <div>
+            <input
+              id="health"
+              class="categoryChoice"
+              type="radio"
+              name="category"
+              role="radio"
+            />
+            <label for="health" class="categoryLabel">Health</label>
+          </div>
+        </fieldset>
+        <label for="deadline">Deadline</label>
+        <input id="deadline" type="datetime" placeholder="12/25/2025" />
+        <fieldset id="statusContainer">
+          <legend>Status</legend>
+          <div>
+            <input id="started" type="checkbox" role="checkbox" />
+            <label for="started">Started</label>
+          </div>
+          <div>
+            <input id="complete" type="checkbox" role="checkbox" />
+            <label for="complete">Complete</label>
+          </div>
+          <div>
+            <input id="onHold" type="checkbox" role="checkbox" />
+            <label for="onHold">On Hold</label>
+          </div>
+        </fieldset>
+        <button>Add Task ➕</button>
+      </form>
     </main>
     <section id="taskArea">
-        <h2>Tasks</h2>
-        <fieldset>
-            <legend>Filter By Status or Category</legend>
-            <div>
-                <label>Find Task(s) With Status:</label>
-                <select id="statusPick" name="status-select">
-                    <option>--Choose a Status--</option>
-                    <option value="started" >Started</option>
-                    <option value="complete" >Complete</option>
-                    <option value="onHold" >On Hold</option>
-                </select>
-            </div>
-            <div>
-                <label>Find Task(s) With Category:</label>
-                <select id="categoryPick" name="category-select">
-                    <option>--Choose a Status--</option>
-                    <option value="general" >General</option>
-                    <option value="work" >Work</option>
-                    <option value="friends" >Friends</option>
-                    <option value="school" >School</option>
-                    <option value="health" >Health</option>
-                </select>
-            </div>
-        </fieldset>
-
+      <h2>Tasks</h2>
+      <fieldset>
+        <legend>Filter By Status or Category</legend>
+        <div>
+          <label>Find Task(s) With Status:</label>
+          <select id="statusPick" name="status-select">
+            <option>--Choose a Status--</option>
+            <option value="started">Started</option>
+            <option value="complete">Complete</option>
+            <option value="onHold">On Hold</option>
+          </select>
+        </div>
+        <div>
+          <label>Find Task(s) With Category:</label>
+          <select id="categoryPick" name="category-select">
+            <option>--Choose a Status--</option>
+            <option value="general">General</option>
+            <option value="work">Work</option>
+            <option value="friends">Friends</option>
+            <option value="school">School</option>
+            <option value="health">Health</option>
+          </select>
+        </div>
+      </fieldset>
+      <div id="displayContainer">
+        <ul id="taskDisplayArea"></ul>
+      </div>
     </section>
     <footer>
-        <div>Web App created by Amanda Ogletree.</div>
+      <div>Web App created by Amanda Ogletree.</div>
     </footer>
-</body>
+  </body>
 </html>
