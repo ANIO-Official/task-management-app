@@ -4,9 +4,9 @@ let tasks = []
 
 //New Task Specific Variables
 let taskName = document.querySelector("#taskName") //The text input
-let category = document.querySelector("categoryChoice:checked")
+let category = document.querySelector(".categoryChoice:checked")
 let deadline = document.querySelector("#deadline")
-let status = document.querySelector(".statusCheckbox:checked")
+let status = document.querySelector(".statusCheckbox").checked
 
 //Task Display Area Variables
 let taskDisplayArea = document.querySelector("#taskDisplayArea") 
@@ -21,9 +21,9 @@ let addTaskBtn = document.querySelector("#addTaskBtn")
 function createTask(taskName, category, deadline, status){
     let newTask = {
         taskName: taskName.value,
-        category: category.innerText,
+        category: category.value,
         deadline: deadline.value,
-        status: status.innerText,
+        status: status.value,
     }
     return newTask
 }
@@ -48,12 +48,22 @@ function renderTasks(){
     listItem.innerText = taskName.value //provides title for list item
     listItem.style.listStyleType = "none"
     listItem.className = "taskHeader"
-    console.log(`Added ${listItem} to list`)
+    console.log(`Displayed ${listItem.innerText} to list`)//Check
     taskDisplayArea.appendChild(listItem)
 }
+//Reusable clear function set values to nada/nothing/0.
+function clear(field){
+    field.value = ""
+}
+
 
 addTaskBtn.addEventListener("click", function(){
+    let task = "newTask"
+    addTask(task)
     renderTasks()
+    clear(taskName)
+    clear(deadline)
+    
 })
 
 
