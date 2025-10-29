@@ -1,0 +1,18 @@
+body{
+    background: linear-gradient(hsl(268, 60%, 30%),hsl(234, 100%, 63%), hsl(177, 79%, 60%));
+}
+
+body p, h1, h2, legend{
+    font-family: "Tomorrow";
+}
+
+button{
+    background: linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%));
+    color: white;
+}
+#welcomeMsg{
+    font-size: 4rem;
+}
+#welcomeSubMsg{
+    font-size: 1.5rem;
+}
