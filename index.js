@@ -4,9 +4,12 @@ let tasks = []
 
 //New Task Specific Variables
 let taskName = document.querySelector("#taskName")
-let category = document.querySelector('input[name="category":checked')
+let category = document.querySelector("categoryChoice:checked")
 let deadline = document.querySelector("#deadline")
-let status = document.querySelector('.statusCheckbox:checked')
+let status = document.querySelector(".statusCheckbox:checked")
+
+//Task Display Area Variables
+let taskDisplayArea = document.querySelector("#taskDisplayArea") 
 
 //////////////////////////////
 //      Data Storage        //
@@ -37,6 +40,16 @@ function addTask(task){
 //      Display Tasks       //
 //////////////////////////////
 
+function renderTasks(){
+    taskDisplayArea.innerHTML = ""
+
+    let listItem = document.createElement("li")
+    listItem.innerText = "Task" //provides title for list item
+    console.log(`Added ${listItem.innerText} to list`)
+    taskDisplayArea.appendChild(listItem)
+}
+
+renderTasks()
 
 
 
