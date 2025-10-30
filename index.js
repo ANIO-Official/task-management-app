@@ -2,7 +2,7 @@
 
 //Tasks Array-------------
 let tasks = []
-
+let displayedTasks = []
 //New Task Specific Variables-------------
 const taskName = document.querySelector("#taskName") //The text input
 const deadline = document.querySelector("#deadline")
@@ -15,6 +15,8 @@ let taskDisplayArea = document.querySelector("#taskDisplayArea")
 let addTaskBtn = document.querySelector("#addTaskBtn")
 let taskDetails = []
 let currentDate = Date()
+let statusFilter = document.querySelector("#statusFilter")
+let categoryFilter = document.querySelector("#categoryFilter")
 
 //////////////////////////////
 //      Data Storage        //
@@ -29,7 +31,7 @@ function createTask(taskName, category, deadline, status) {
         deadline: deadline.value,
         status: status.value,
     }
-    console.log(tasks) //Check array for added task
+    console.log("Tasks in array: " + tasks) //Check array for added task
     return newTask
 }
 
@@ -96,7 +98,7 @@ function renderTasks() {
                     case ("Pending"):
                         taskCardStatus.innerText = "Started"
                         tasks[i].status = "Started"
-                        taskCardStatus.style.background="linear-gradient(hsla(207, 70%, 26%, 1.00), hsla(157, 69%, 66%, 1.00))"
+                        taskCardStatus.style.background = "linear-gradient(hsla(207, 70%, 26%, 1.00), hsla(157, 69%, 66%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
                         newCard.status = tasks[i].status
@@ -104,7 +106,7 @@ function renderTasks() {
                     case ("Started"):
                         taskCardStatus.innerText = "Completed"
                         tasks[i].status = "Completed"
-                        taskCardStatus.style.background="linear-gradient(hsla(128, 67%, 28%, 1.00), hsla(101, 73%, 60%, 1.00))"
+                        taskCardStatus.style.background = "linear-gradient(hsla(128, 67%, 28%, 1.00), hsla(101, 73%, 60%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
                         newCard.status = tasks[i].status
@@ -112,7 +114,7 @@ function renderTasks() {
                     case ("Completed"):
                         taskCardStatus.innerText = "Pending"
                         tasks[i].status = "Pending"
-                        taskCardStatus.style.background="linear-gradient(hsla(22, 74%, 37%, 1.00), hsla(44, 100%, 68%, 1.00))"
+                        taskCardStatus.style.background = "linear-gradient(hsla(22, 74%, 37%, 1.00), hsla(44, 100%, 68%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
                         newCard.status = tasks[i].status
@@ -129,23 +131,23 @@ function renderTasks() {
             taskCardDeadline.innerText = tasks[i].deadline
             taskCardCategory.innerText = tasks[i].category
             taskCardStatus.innerText = tasks[i].status
-            taskCardStatus.style.background="linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%))"
+            taskCardStatus.style.background = "linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%))"
             taskCardStatus.value = tasks[i].status
 
             //Add the newly created task card information to the details array. Attach it to card.
             taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
             //Checks dates for any overdue items to update
-            if(Date.parse(tasks[i].deadline) < Date.parse(currentDate)){
+            if (Date.parse(tasks[i].deadline) < Date.parse(currentDate)) {
                 taskDetails.push(overdueTag)
                 overdueTag.innerText = "OVERDUE"
-                console.log("This one is overdue!")
-                console.log(taskDetails)
+                console.log("This task is overdue!")
             }
             //Append all details to Card
             appendDetails(card, taskDetails)
 
         }
         taskCardSetup(newCard)
+        displayedTasks.push(newCard) //Send new card to display list
         listItem.appendChild(newCard) //Appends taskCard to listItem
         taskDisplayArea.appendChild(listItem)
         console.log(`Displayed new list item`)//Check
@@ -163,6 +165,41 @@ addTaskBtn.addEventListener("click", function () {
     renderTasks()
     clear(taskName)
     clear(deadline)
+})
+
+//Look for the style or category, hide all false
+statusFilter.addEventListener("change", function () {
+    console.log(`Filter: ${statusFilter.value}`)//check filter 
+
+    for (let i = 0; i < displayedTasks.length; i++) {
+        if (displayedTasks[i].status !== statusFilter.value) {
+            displayedTasks[i].style.display = "none"
+        } 
+        else if (displayedTasks[i].status === statusFilter.value) {
+            displayedTasks[i].style.display = "block"
+        }
+        else if (displayedTasks[i].status !== statusFilter.value && statusFilter.value == "default") {
+            displayedTasks[i].style.display = "block"
+        }
+    }
+})
+categoryFilter.addEventListener("change", function () {
+    console.log(`Filter: ${categoryFilter.value}`)//check filter 
+    for (let i = 0; i < displayedTasks.length; i++) {
+        if (displayedTasks[i].category !== categoryFilter.value) {
+            displayedTasks[i].style.display = "none"
+            console.log(`hiding ${displayedTasks[i].category}`)
+        } 
+        else if (displayedTasks[i].category === categoryFilter.value) {
+            displayedTasks[i].style.display = "block"
+            console.log(`showing ${displayedTasks[i].category}`)
+        }
+        else if (displayedTasks[i].category !== categoryFilter.value && categoryFilter.value == "default") {
+            displayedTasks[i].style.display = "block"
+            console.log(`showing ${displayedTasks[i].category}`)
+        }
+    }
+
 })
 
 
