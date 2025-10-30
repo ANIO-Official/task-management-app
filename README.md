@@ -28,7 +28,7 @@ The App should be **polished** *and* **functional**. Users should be able to:
 - [Author](#author)
 
 ### GitHub Link
-
+https://github.com/ANIO-Official/task-management-app 
 ### How To Use
 1. Clone the repository or Download the ZIP file and extract the files.
 2. Drag and Drop the HTML file into your browser of choice.
@@ -38,11 +38,10 @@ The App should be **polished** *and* **functional**. Users should be able to:
 
 ## My process
 Quick brief about process. Here are my steps/general steps:
- 1. Step 1 Title
-
-  Bullet Points
-
- 2. Step 1 Title
+ 1. Build HTML and Starter CSS with Bootstrap Librarys
+ 2. Code the functionality of the website in Javascript
+ 3. Run Tests using html file in browser and console.log
+ 4. Bug Fix, Removals, and Refactoring.
 
   Bullet Points
 
@@ -50,16 +49,20 @@ Quick brief about process. Here are my steps/general steps:
 - JavaScript
 - Semantic HTML
 - CSS
+- Bootstrap CSS Library
 
 ## Reflection
 
  **Challenges**
 
-  [Answer here]
+  Forgot a # again for one of querySelector values leading to some undefined values. but a quick review fixed this.
+  Reading the updated values of the checkboxes and categories took the most time from me. I struggled trying to use checkbox and grab it's value. It kept coming back undefined no matter my methods.
 
  **Approach to Challenges**
 
-  [Answer here]
+  Initially I tried to grab the single checked value of the status checkboxes but it returned undefined. So I tried grabbing all the status values then filtering using filter() method for the checked value; still undefined. I tried for loops, for of loops, and ultimately gave up on check boxes. 
+  Due to the checkbox for status having too many issues occuring when accessing it's values, I changed it into a select input. Select was much easier for DOM Manipulation. Originally, I tried reading and trying out code from multiple resources for accessing checkbox values. This lead to too many dead ends and took precious time away from me being able to focus on other parts. I needed a value that could return so that I could update it for step 3 and filter by it in step 4.
+  Additionally, I realized I was assigning the DOM manipulation variables for status and category too early. Unlike the input text field and the date field, the status and category values worked best when called as the button is pressed. Otherwise, it will set the variable to whatever the default checked value is or to undefined. 
 
  **Improvement**
   I'd like to make a Figma to figure out the design ahead of time to help with quicker styling of the webpage. Though Figma does take time too.
