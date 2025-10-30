@@ -30,7 +30,7 @@
         </div>
         <div id="taskContentContainer">
             <main>
-                <label for="newTask-form" class="fs-2 pb-3">Hey Buddy! Got A New Task?</label>
+                <label id="newTaskMsg" for="newTask-form" class="fs-2 pb-3">Hey Buddy! Got A New Task?</label>
                 <form id="newTask-form" name="newTaskForm" class="d-flex flex-row">
                     <div class="pe-5">
                         <label for="taskName">Task Name</label>
@@ -66,7 +66,7 @@
                         <br>
                         <fieldset id="statusContainer">
                             <legend>Status</legend>
-                            <select id="statusSelect" name="statusSelect">
+                            <select id="statusSelect" name="statusSelect" class="selector">
                                 <option value="Started" class="statusChoice">Started</option>
                                 <option value="Completed" class="statusChoice">Completed</option>
                                 <option value="Pending" class="statusChoice">Pending</option>
@@ -81,6 +81,7 @@
             <br>
         </div>
         <div class="accent-column pe-5" style=" width: 15vw; height: 100%;">
+            <img id="buddy" src="images/happy-1296588_640.png" alt="A happy robot doing a thumbs up."/>
         </div>
     </div>
     <div class="divider bg-info mx-5" style="height: 1vw;"></div>
@@ -92,7 +93,7 @@
                 <legend>Filter By Status or Category</legend>
                 <div>
                     <label>Find Task(s) With Status:</label>
-                    <select id="statusFilter" name="statusFilter">
+                    <select id="statusFilter" name="statusFilter" class="selector">
                         <option value="default">--Choose a Status--</option>
                         <option value="Started">Started</option>
                         <option value="Completed">Completed</option>
@@ -102,7 +103,7 @@
                 <br>
                 <div>
                     <label>Find Task(s) With Category:</label>
-                    <select id="categoryFilter" name="categoryFilter">
+                    <select id="categoryFilter" name="categoryFilter" class="selector">
                         <option value="default">--Choose a Category--</option>
                         <option value="General">General</option>
                         <option value="Work">Work</option>

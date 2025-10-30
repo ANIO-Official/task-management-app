@@ -84,7 +84,7 @@ function renderTasks() {
             taskCardDeadline.className = "cardDeadline"
 
             let overdueTag = document.createElement("p")
-            overdueTag.style.color = "red"
+            overdueTag.className = "overdueTag"
 
             let taskCardCategory = document.createElement("p")
             taskCardCategory.className = "cardCategory"
@@ -114,7 +114,7 @@ function renderTasks() {
                     case ("Completed"):
                         taskCardStatus.innerText = "Pending"
                         tasks[i].status = "Pending"
-                        taskCardStatus.style.background = "linear-gradient(hsla(22, 74%, 37%, 1.00), hsla(44, 100%, 68%, 1.00))"
+                        taskCardStatus.style.background = "linear-gradient(hsla(278, 74%, 37%, 1.00), hsla(261, 100%, 68%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
                         newCard.status = tasks[i].status

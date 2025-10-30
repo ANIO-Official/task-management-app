@@ -10,6 +10,14 @@ button {
     background: linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%));
     color: white;
 }
+input, select{
+    border-radius: 15rem;
+    padding: 3px 5px;
+}
+button:focus, input:focus, button:hover, select:focus{
+    border: 5px solid #f5c62b;
+}
+
  
 #welcomeMsg{
     font-size: 4rem;
@@ -17,7 +25,20 @@ button {
 #welcomeSubMsg{
     font-size: 1.5rem;
 }
+#newTaskMsg{
+    border: 2px solid black;
+    border-radius: 15rem 15rem 0 15rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+    background-color: white;
+}
 
+#buddy{
+    width: 15vw;
+    height: inherit;
+    margin-left: -5vw;
+}
 /* Card Display Layout */
 #taskDisplayArea{
     margin: 0.5vw;
@@ -33,11 +54,40 @@ button {
 /* Style Dynamic Tasks */
 .taskCard{
     border: 3px solid black;
-    padding: 1vw 4vw;
-    margin: 0.5vw 1vw;
+    padding: 1vw 2vw;
+    margin: 1vw 0;
     border-radius: 1rem 1rem 0 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    background-color: #f5c62b;
+    text-overflow: none;
+}
+.cardName{
+    font-weight: bold;
+    text-wrap: wrap;
+    font-size: 2rem;
+}
+.cardDeadline{
+    font-weight: 500;
+    font-size: 1rem
+}
+.cardCategory{
+    font-size: 1.5rem;
+}
+.cardStatus{
+    font-size: 1rem;
+    border-radius: 15rem;
+    padding: 3px 5px;
+    background: linear-gradient(hsl(234, 77%, 34%), hsl(240, 39%, 12%))
+}
+.overdueTag{
+    margin-top: 0.5rem;
+    background-color: rgb(167, 7, 7);
+    padding: 1rem;
+    border-radius: 15rem;
+    color:white;
 }
