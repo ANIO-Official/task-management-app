@@ -172,32 +172,34 @@ statusFilter.addEventListener("change", function () {
     console.log(`Filter: ${statusFilter.value}`)//check filter 
 
     for (let i = 0; i < displayedTasks.length; i++) {
-        if (displayedTasks[i].status !== statusFilter.value) {
+        if (displayedTasks[i].status !== statusFilter.value && statusFilter.value == "default") {
+            displayedTasks[i].style.display = "block"
+        }
+        else if (displayedTasks[i].status !== statusFilter.value) {
             displayedTasks[i].style.display = "none"
-        } 
+        }
         else if (displayedTasks[i].status === statusFilter.value) {
             displayedTasks[i].style.display = "block"
         }
-        else if (displayedTasks[i].status !== statusFilter.value && statusFilter.value == "default") {
-            displayedTasks[i].style.display = "block"
-        }
+
     }
 })
 categoryFilter.addEventListener("change", function () {
     console.log(`Filter: ${categoryFilter.value}`)//check filter 
     for (let i = 0; i < displayedTasks.length; i++) {
-        if (displayedTasks[i].category !== categoryFilter.value) {
+        if (displayedTasks[i].category !== categoryFilter.value && categoryFilter.value == "default") {
+            displayedTasks[i].style.display = "block"
+            console.log(`showing ${displayedTasks[i].category}`)
+        }
+        else if (displayedTasks[i].category !== categoryFilter.value) {
             displayedTasks[i].style.display = "none"
             console.log(`hiding ${displayedTasks[i].category}`)
-        } 
+        }
         else if (displayedTasks[i].category === categoryFilter.value) {
             displayedTasks[i].style.display = "block"
             console.log(`showing ${displayedTasks[i].category}`)
         }
-        else if (displayedTasks[i].category !== categoryFilter.value && categoryFilter.value == "default") {
-            displayedTasks[i].style.display = "block"
-            console.log(`showing ${displayedTasks[i].category}`)
-        }
+
     }
 
 })
