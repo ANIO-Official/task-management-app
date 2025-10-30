@@ -1,4 +1,5 @@
 /////Global Variables/////
+
 //Tasks Array-------------
 let tasks = []
 
@@ -13,6 +14,7 @@ let status
 let taskDisplayArea = document.querySelector("#taskDisplayArea")
 let addTaskBtn = document.querySelector("#addTaskBtn")
 let taskDetails = []
+let currentDate = Date()
 
 //////////////////////////////
 //      Data Storage        //
@@ -76,6 +78,9 @@ function renderTasks() {
             let taskCardDeadline = document.createElement("p")
             taskCardDeadline.className = "cardDeadline"
 
+            let overdueTag = document.createElement("p")
+            overdueTag.style.color = "red"
+
             let taskCardCategory = document.createElement("p")
             taskCardCategory.className = "cardCategory"
 
@@ -123,7 +128,16 @@ function renderTasks() {
 
             //Add the newly created task card information to the details array. Attach it to card.
             taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
+            //Checks dates for any overdue items to update
+            if(Date.parse(tasks[i].deadline) < Date.parse(currentDate)){
+                taskDetails.push(overdueTag)
+                overdueTag.innerText = "OVERDUE"
+                console.log("This one is overdue!")
+                console.log(taskDetails)
+            }
+            //Append all details to Card
             appendDetails(card, taskDetails)
+
         }
         taskCardSetup(newCard)
         listItem.appendChild(newCard) //Appends taskCard to listItem
@@ -141,3 +155,4 @@ addTaskBtn.addEventListener("click", function () {
     clear(taskName)
     clear(deadline)
 })
+
