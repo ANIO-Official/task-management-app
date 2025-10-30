@@ -34,7 +34,14 @@
                 <form id="newTask-form" name="newTaskForm" class="d-flex flex-row">
                     <div class="pe-5">
                         <label for="taskName">Task Name</label>
-                        <input id="taskName" type="text" placeholder="Go to the movies..." class="mb-3" />
+                        <input 
+                            id="taskName" 
+                            type="text"
+                            placeholder="Go to the movies..." 
+                            class="mb-3" 
+                            minlength="3"
+                            maxlength="21"
+                        />
                         <br>
                         <fieldset id="categoryContainer" type="radio">
                             <legend>Pick a Category</legend>
@@ -85,7 +92,7 @@
         </div>
     </div>
     <div class="divider bg-info mx-5" style="height: 1vw;"></div>
-    <div id="taskArea-bg" class="bg-light mx-5 d-flex flex-row align-items-start" style="height: 1080px;">
+    <div id="taskArea-bg" class="bg-light mx-5 d-flex flex-row align-items-start">
         <div class="accent-column pe-5" style=" width: 5vw; height: 100%;"></div>
         <section id="taskArea" class="py-5">
             <h2>Task List</h2>
