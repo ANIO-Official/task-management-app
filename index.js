@@ -6,8 +6,8 @@ let tasks = []
 const taskName = document.querySelector("#taskName") //The text input
 const deadline = document.querySelector("#deadline")
 //set both later once button to create task is press to dynamically change value
-let category  
-let status 
+let category
+let status
 
 //Task Display Area Variables-------------
 let taskDisplayArea = document.querySelector("#taskDisplayArea")
@@ -62,49 +62,44 @@ function appendDetails(parentTask, details) {
 
 function renderTasks() {
     taskDisplayArea.innerHTML = ""
-    
+
     //Create new listed task to display with Card appended
-    for(let i=0; i < tasks.length; i++){
+    for (let i = 0; i < tasks.length; i++) {
         let listItem = document.createElement("li")
         listItem.style.listStyleType = "none"
         listItem.innerText = tasks[i].name
-
         let newCard = document.createElement("div")
         newCard.className = "taskCard"
-        taskCardSetup(newCard) //Append details to taskCard div
-        listItem.appendChild(newCard) //Append taskCard to listItem
-        taskDisplayArea.appendChild(listItem)
-        console.log(`Displayed new list item`)//Check
-    }
+        /*Create the Task Details to display inside card.
+        Shows: Name, Category, Deadline, and Status & Adds classes for CSS styling*/
+        function taskCardSetup(card) {
 
-    /*Create the Task Details to display inside card.
-    Shows: Name, Category, Deadline, and Status & Adds classes for CSS styling*/
-    function taskCardSetup(newCard) {
-          
-        //Create a paragraph element for Task Name, Category, and Status
-        let taskCardName = document.createElement("p")
-        taskCardName.className = "cardName"
+            //Create a paragraph element for Task Name, Category, and Status
+            let taskCardName = document.createElement("p")
+            taskCardName.className = "cardName"
 
-        let taskCardDeadline = document.createElement("p")
-        taskCardDeadline.className = "cardDeadline"
+            let taskCardDeadline = document.createElement("p")
+            taskCardDeadline.className = "cardDeadline"
 
-        let taskCardCategory = document.createElement("p")
-        taskCardCategory.className = "cardCategory"
+            let taskCardCategory = document.createElement("p")
+            taskCardCategory.className = "cardCategory"
 
-        let taskCardStatus = document.createElement("p")
-        taskCardStatus.className = "cardStatus"
-
-        for (let i=0; i < tasks.length; i++){
+            let taskCardStatus = document.createElement("p")
+            taskCardStatus.className = "cardStatus"
             //assign paragraph elements innText using task object value
             taskCardName.innerText = tasks[i].name
             taskCardDeadline.innerText = tasks[i].deadline
             taskCardCategory.innerText = tasks[i].category
             taskCardStatus.innerText = tasks[i].status
-        }
 
-        //Add the newly created task card information to the details array. Attach it to card.
-        taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
-        appendDetails(newCard, taskDetails)
+            //Add the newly created task card information to the details array. Attach it to card.
+            taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
+            appendDetails(card, taskDetails)
+        }
+        taskCardSetup(newCard)
+        listItem.appendChild(newCard) //Append taskCard to listItem
+        taskDisplayArea.appendChild(listItem)
+        console.log(`Displayed new list item`)//Check
     }
 }
 
