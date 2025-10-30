@@ -6,10 +6,32 @@ body p, h1, h2, legend{
     font-family: "Tomorrow";
 }
 
-button{
+#addTaskBtn{
     background: linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%));
     color: white;
 }
+
+/* Dynamic Status Appearance */
+.cardStatus[value = "Started"]{
+    background-color: green;
+    color: white;
+    border-radius: 25%;
+    padding: 0.5rem 1rem;
+}
+.cardStatus[value = "Completed"]{
+    background-color: rgb(34, 37, 182);
+    color: white;
+    border-radius: 25%;
+    padding: 0.5rem 1rem;
+}
+.cardStatus[value = "Pending"]{
+    background-color: rgb(214, 100, 24);
+    color: white;
+    border-radius: 25%;
+    padding: 0.5rem 1rem;
+}
+
+ 
 #welcomeMsg{
     font-size: 4rem;
 }
@@ -17,11 +39,23 @@ button{
     font-size: 1.5rem;
 }
 
+/* Card Display Layout */
+#taskDisplayArea{
+    margin: 0.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    /* display: grid;
+    grid-template-rows: repeat(4, max-content);
+    grid-template-rows: repeat(auto-fill, 100%); */
+}
+
 /* Style Dynamic Tasks */
 .taskCard{
     border: 3px solid black;
-    margin: 1rem;
-    padding: 0.5vw 1vw;
+    padding: 1vw 4vw;
+    margin: 0.5vw 1vw;
     border-radius: 1rem 1rem 0 0;
     display: flex;
     flex-direction: column;

@@ -14,10 +14,6 @@ let taskDisplayArea = document.querySelector("#taskDisplayArea")
 let addTaskBtn = document.querySelector("#addTaskBtn")
 let taskDetails = []
 
-// //Create a div to be a card for task information in the Display Area
-// let taskCard = document.createElement("div")
-// taskCard.className = "taskCard"
-
 //////////////////////////////
 //      Data Storage        //
 //////////////////////////////
@@ -67,7 +63,6 @@ function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
         let listItem = document.createElement("li")
         listItem.style.listStyleType = "none"
-        listItem.innerText = tasks[i].name
         let newCard = document.createElement("div")
         newCard.className = "taskCard"
         /*Create the Task Details to display inside card.
@@ -84,8 +79,31 @@ function renderTasks() {
             let taskCardCategory = document.createElement("p")
             taskCardCategory.className = "cardCategory"
 
-            let taskCardStatus = document.createElement("p")
+            let taskCardStatus = document.createElement("button")
             taskCardStatus.className = "cardStatus"
+
+            //Add Event Listener
+            taskCardStatus.addEventListener("click", function () {
+                switch (taskCardStatus.innerText) {
+                    case ("Pending"):
+                        taskCardStatus.innerText = "Started"
+                        tasks[i].status = "Started"
+                        break;
+                    case ("Started"):
+                        taskCardStatus.innerText = "Completed"
+                        tasks[i].status = "Completed"
+                        break;
+                    case ("Completed"):
+                        taskCardStatus.innerText = "Pending"
+                        tasks[i].status = "Pending"
+                        break;
+
+                    default:
+                        console.log("Error when switching status.")
+                        break;
+                }
+            })
+
             //assign paragraph elements innText using task object value
             taskCardName.innerText = tasks[i].name
             taskCardDeadline.innerText = tasks[i].deadline
@@ -97,7 +115,7 @@ function renderTasks() {
             appendDetails(card, taskDetails)
         }
         taskCardSetup(newCard)
-        listItem.appendChild(newCard) //Append taskCard to listItem
+        listItem.appendChild(newCard) //Appends taskCard to listItem
         taskDisplayArea.appendChild(listItem)
         console.log(`Displayed new list item`)//Check
     }
