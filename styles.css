@@ -6,31 +6,10 @@ body p, h1, h2, legend{
     font-family: "Tomorrow";
 }
 
-#addTaskBtn{
+button {
     background: linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%));
     color: white;
 }
-
-/* Dynamic Status Appearance */
-.cardStatus[value = "Started"]{
-    background-color: green;
-    color: white;
-    border-radius: 25%;
-    padding: 0.5rem 1rem;
-}
-.cardStatus[value = "Completed"]{
-    background-color: rgb(34, 37, 182);
-    color: white;
-    border-radius: 25%;
-    padding: 0.5rem 1rem;
-}
-.cardStatus[value = "Pending"]{
-    background-color: rgb(214, 100, 24);
-    color: white;
-    border-radius: 25%;
-    padding: 0.5rem 1rem;
-}
-
  
 #welcomeMsg{
     font-size: 4rem;

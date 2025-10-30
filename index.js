@@ -88,14 +88,23 @@ function renderTasks() {
                     case ("Pending"):
                         taskCardStatus.innerText = "Started"
                         tasks[i].status = "Started"
+                        taskCardStatus.style.background="linear-gradient(hsla(207, 70%, 26%, 1.00), hsla(157, 69%, 66%, 1.00))"
+                        taskCardStatus.innerText = tasks[i].status
+                        taskCardStatus.value = tasks[i].status
                         break;
                     case ("Started"):
                         taskCardStatus.innerText = "Completed"
                         tasks[i].status = "Completed"
+                        taskCardStatus.style.background="linear-gradient(hsla(128, 67%, 28%, 1.00), hsla(101, 73%, 60%, 1.00))"
+                        taskCardStatus.innerText = tasks[i].status
+                        taskCardStatus.value = tasks[i].status
                         break;
                     case ("Completed"):
                         taskCardStatus.innerText = "Pending"
                         tasks[i].status = "Pending"
+                        taskCardStatus.style.background="linear-gradient(hsla(22, 74%, 37%, 1.00), hsla(44, 100%, 68%, 1.00))"
+                        taskCardStatus.innerText = tasks[i].status
+                        taskCardStatus.value = tasks[i].status
                         break;
 
                     default:
@@ -109,6 +118,8 @@ function renderTasks() {
             taskCardDeadline.innerText = tasks[i].deadline
             taskCardCategory.innerText = tasks[i].category
             taskCardStatus.innerText = tasks[i].status
+            taskCardStatus.style.background="linear-gradient(hsl(234, 100%, 63%), hsl(177, 79%, 60%))"
+            taskCardStatus.value = tasks[i].status
 
             //Add the newly created task card information to the details array. Attach it to card.
             taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
