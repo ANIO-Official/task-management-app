@@ -31,7 +31,7 @@
         <div id="taskContentContainer">
             <main>
                 <label for="newTask-form" class="fs-2 pb-3">Hey Buddy! Got A New Task?</label>
-                <form id="newTask-form" class="d-flex flex-row">
+                <form id="newTask-form" name="newTaskForm" class="d-flex flex-row">
                     <div class="pe-5">
                         <label for="taskName">Task Name</label>
                         <input id="taskName" type="text" placeholder="Go to the movies..." class="mb-3" />
@@ -39,24 +39,23 @@
                         <fieldset id="categoryContainer" type="radio">
                             <legend>Pick a Category</legend>
                             <div>
-                                <input id="general" class="categoryChoice" type="radio" name="category" role="radio" value="General"
-                                    checked />
+                                <input id="general" class="categoryChoice" type="radio" name="category" role="radio" value="General" checked/>
                                 <label for="general" class="categoryLabel">General</label>
                             </div>
                             <div>
-                                <input id="work" class="categoryChoice" type="radio" name="category" role="radio" value="Work"/>
+                                <input id="work" class="categoryChoice" type="radio" name="category" role="radio" value="Work" checked/>
                                 <label for="work" class="categoryLabel">Work</label>
                             </div>
                             <div>
-                                <input id="friends" class="categoryChoice" type="radio" name="category" role="radio" value="Friends"/>
+                                <input id="friends" class="categoryChoice" type="radio" name="category" role="radio" value="Friends" checked/>
                                 <label for="friends" class="categoryLabel">Friends</label>
                             </div>
                             <div>
-                                <input id="school" class="categoryChoice" type="radio" name="category" role="radio" value="School"/>
+                                <input id="school" class="categoryChoice" type="radio" name="category" role="radio" value="School" checked/>
                                 <label for="school" class="categoryLabel">School</label>
                             </div>
                             <div>
-                                <input id="health" class="categoryChoice" type="radio" name="category" role="radio" value="Health"/>
+                                <input id="health" class="categoryChoice" type="radio" name="category" role="radio" value="Health" checked/>
                                 <label for="health" class="categoryLabel">Health</label>
                             </div>
                         </fieldset>
@@ -67,21 +66,11 @@
                         <br>
                         <fieldset id="statusContainer">
                             <legend>Status</legend>
-                            <div>
-                                <input id="started" type="checkbox" role="checkbox" value="Started"
-                                class="statusCheckbox"/>
-                                <label for="started">Started</label>
-                            </div>
-                            <div>
-                                <input id="complete" type="checkbox" role="checkbox" value="Complete"
-                                class="statusCheckbox"/>
-                                <label for="complete">Complete</label>
-                            </div>
-                            <div>
-                                <input id="pending" type="checkbox" role="checkbox" value="Pending"
-                                class="statusCheckbox"/>
-                                <label for="pending">Pending</label>
-                            </div>
+                            <select id="statusSelect" name="statusSelect">
+                                <option value="Started" class="statusChoice">Started</option>
+                                <option value="Completed" class="statusChoice">Completed</option>
+                                <option value="Pending" class="statusChoice">Pending</option>
+                            </select>
                         </fieldset>
                     </div>
                 </form>
@@ -103,18 +92,18 @@
                 <legend>Filter By Status or Category</legend>
                 <div>
                     <label>Find Task(s) With Status:</label>
-                    <select id="statusPick" name="status-select">
+                    <select id="statusFilter" name="statusFilter">
                         <option>--Choose a Status--</option>
                         <option value="started">Started</option>
                         <option value="complete">Complete</option>
-                        <option value="onHold">On Hold</option>
+                        <option value="pending">Pending</option>
                     </select>
                 </div>
                 <br>
                 <div>
                     <label>Find Task(s) With Category:</label>
-                    <select id="categoryPick" name="category-select">
-                        <option>--Choose a Status--</option>
+                    <select id="categoryFilter" name="categoryFilter">
+                        <option>--Choose a Category--</option>
                         <option value="general">General</option>
                         <option value="work">Work</option>
                         <option value="friends">Friends</option>
