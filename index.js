@@ -67,6 +67,9 @@ function renderTasks() {
         listItem.style.listStyleType = "none"
         let newCard = document.createElement("div")
         newCard.className = "taskCard"
+        newCard.category = (tasks[i].category)
+        newCard.status = (tasks[i].status)
+
         /*Create the Task Details to display inside card.
         Shows: Name, Category, Deadline, and Status & Adds classes for CSS styling*/
         function taskCardSetup(card) {
@@ -87,7 +90,7 @@ function renderTasks() {
             let taskCardStatus = document.createElement("button")
             taskCardStatus.className = "cardStatus"
 
-            //Add Event Listener
+            //Add Event Listener to Status Button
             taskCardStatus.addEventListener("click", function () {
                 switch (taskCardStatus.innerText) {
                     case ("Pending"):
@@ -96,6 +99,7 @@ function renderTasks() {
                         taskCardStatus.style.background="linear-gradient(hsla(207, 70%, 26%, 1.00), hsla(157, 69%, 66%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
+                        newCard.status = tasks[i].status
                         break;
                     case ("Started"):
                         taskCardStatus.innerText = "Completed"
@@ -103,6 +107,7 @@ function renderTasks() {
                         taskCardStatus.style.background="linear-gradient(hsla(128, 67%, 28%, 1.00), hsla(101, 73%, 60%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
+                        newCard.status = tasks[i].status
                         break;
                     case ("Completed"):
                         taskCardStatus.innerText = "Pending"
@@ -110,6 +115,7 @@ function renderTasks() {
                         taskCardStatus.style.background="linear-gradient(hsla(22, 74%, 37%, 1.00), hsla(44, 100%, 68%, 1.00))"
                         taskCardStatus.innerText = tasks[i].status
                         taskCardStatus.value = tasks[i].status
+                        newCard.status = tasks[i].status
                         break;
 
                     default:
@@ -146,6 +152,9 @@ function renderTasks() {
     }
 }
 
+//////////////////////////////
+//  Main Button & Selects   //
+//////////////////////////////
 addTaskBtn.addEventListener("click", function () {
     category = (document.querySelector('input[name="category"]:checked'))
     status = document.querySelector("#statusSelect")
@@ -155,4 +164,5 @@ addTaskBtn.addEventListener("click", function () {
     clear(taskName)
     clear(deadline)
 })
+
 
