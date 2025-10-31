@@ -52,6 +52,7 @@ button:focus, input:focus, button:hover, select:focus{
     grid-template-columns: repeat(4, max-content);
     grid-template-rows: repeat(auto-fill, 50%); 
     row-gap: 10px;
+    column-gap: 5px;
 }
 
 /* Style Dynamic Tasks */
@@ -64,8 +65,10 @@ button:focus, input:focus, button:hover, select:focus{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 100%;
-    height: auto;
+    min-width: 250px;
+    max-width: 300px;
+    min-height: auto;
+    max-height: 362px;
     background-color: #f5c62b;
     text-overflow: none;
 }
