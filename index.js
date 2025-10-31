@@ -137,7 +137,7 @@ function renderTasks() {
             //Add the newly created task card information to the details array. Attach it to card.
             taskDetails = [taskCardName, taskCardDeadline, taskCardCategory, taskCardStatus]
             //Checks dates for any overdue items to update
-            if (Date.parse(tasks[i].deadline) < Date.parse(currentDate)) {
+            if (Date.parse(tasks[i].deadline) < Date.parse(currentDate) && tasks[i].status !== "Completed") {
                 taskDetails.push(overdueTag)
                 overdueTag.innerText = "OVERDUE"
                 console.log("This task is overdue!")
