@@ -36,8 +36,12 @@ https://github.com/ANIO-Official/task-management-app
 
 *Feel free to reference the Overview for a reminder of interactions that should be present.*
 
+![Taskbuddy Preview]('./images/task-buddy-pc-preview.png)
+
 ## My process
-Quick brief about process. Here are my steps/general steps:
+
+  Quick brief about process. Here are my steps/general steps:
+
  1. Build HTML and Starter CSS with Bootstrap Librarys
  2. Code the functionality of the website in Javascript
  3. Run Tests using html file in browser and console.log
@@ -46,6 +50,7 @@ Quick brief about process. Here are my steps/general steps:
   Bullet Points
 
 ### Built with
+
 - JavaScript
 - Semantic HTML
 - CSS
@@ -65,36 +70,58 @@ Quick brief about process. Here are my steps/general steps:
   Additionally, I realized I was assigning the DOM manipulation variables for status and category too early. Unlike the input text field and the date field, the status and category values worked best when called as the button is pressed. Otherwise, it will set the variable to whatever the default checked value is or to undefined. 
 
  **Improvement**
+
   I'd like to make a Figma to figure out the design ahead of time to help with quicker styling of the webpage. Though Figma does take time too.
   I'd also like to figure out a way to make the render function cleaner. I know often there will be function nested occasionally but I felt like that one function has a lot of stuff going on compared to all my other functions.
 
 ### Useful resources
+
 *There were a lot this time, so I'm just categorizing by source site or purpose*
 
 **MDN Documentation**
+
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio
+
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/maxlength
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+
 https://getbootstrap.com/docs/5.3/getting-started/introduction
 
 **Styling Documentation**
+
 https://fonts.google.com/
+
 https://www.w3schools.com/jsreF/prop_style_liststyletype.asp
 
+
 **Videos**
+
 https://www.youtube.com/watch?v=1s4s_lU83pM
+
 https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js
 
+
 **Stack Overflow**
+
 https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+
 https://stackoverflow.com/questions/11599666/get-the-value-of-checked-checkbox
+
 https://stackoverflow.com/questions/1115310/how-can-i-add-a-class-to-a-dom-element-in-javascript
+
 https://stackoverflow.com/questions/43115822/can-i-make-a-css-grid-with-dynamic-number-of-rows-or-columns
+
 https://stackoverflow.com/questions/18414384/hide-element-by-class-in-pure-javascript
+
 https://stackoverflow.com/questions/21070101/show-hide-div-using-javascript
 
 ## Author
