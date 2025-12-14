@@ -5,7 +5,7 @@ The purpose of this project is to demonstrate my ability apply what I've learned
 - Arrays
 - DOM Manipulation
 - Conditionals, and
-- Creating & Accessing a Local Storage
+- Creating & Accessing a Local Storage (Optional)
 
 The App should be **polished** *and* **functional**. Users should be able to:
 
