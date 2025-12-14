@@ -36,7 +36,7 @@ https://github.com/ANIO-Official/task-management-app
 
 *Feel free to reference the Overview for a reminder of interactions that should be present.*
 
-![Taskbuddy Preview]('images/task-buddy-pc-preview.png)
+![Taskbuddy Preview](images/task-buddy-pc-preview.png)
 
 ## My process
 
